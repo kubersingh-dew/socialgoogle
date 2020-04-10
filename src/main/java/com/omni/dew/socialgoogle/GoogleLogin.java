@@ -14,14 +14,15 @@ import com.omni.dew.basemodule.BaseLogin;
 import com.omni.dew.basemodule.LoginResponse;
 
 public class GoogleLogin implements BaseLogin {
-    private GoogleLogin(){ }
 
     private GoogleSignInClient googleApiClient;
     private GoogleSignInOptions gso;
     Activity activity;
     int RC_SIGN_IN = 20598;
     LoginResponse loginResponse;
-    public GoogleLogin( Activity activity, LoginResponse loginResponse){
+
+    @Override
+    public void init( Activity activity, LoginResponse loginResponse){
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
